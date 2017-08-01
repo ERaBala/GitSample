@@ -26,6 +26,7 @@
 		2DC51D9D1F28AC650088DF5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DC51DA01F28AC650088DF5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DC51DA21F28AC650088DF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DC51DA81F28AF670088DF5D /* ICloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ICloud.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +45,7 @@
 			children = (
 				2DC51D901F28AC640088DF5D /* ICloud */,
 				2DC51D8F1F28AC640088DF5D /* Products */,
+				2DC51DA91F28AF750088DF5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +60,7 @@
 		2DC51D901F28AC640088DF5D /* ICloud */ = {
 			isa = PBXGroup;
 			children = (
+				2DC51DA81F28AF670088DF5D /* ICloud.entitlements */,
 				2DC51D941F28AC640088DF5D /* AppDelegate.h */,
 				2DC51D951F28AC650088DF5D /* AppDelegate.m */,
 				2DC51D971F28AC650088DF5D /* ViewController.h */,
@@ -77,6 +80,13 @@
 				2DC51D921F28AC640088DF5D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2DC51DA91F28AF750088DF5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,8 +120,16 @@
 				TargetAttributes = {
 					2DC51D8D1F28AC640088DF5D = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 6BNPRA8RPG;
+						DevelopmentTeam = DTAX3VK6YF;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -275,10 +293,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6BNPRA8RPG;
+				CODE_SIGN_ENTITLEMENTS = ICloud/ICloud.entitlements;
+				DEVELOPMENT_TEAM = DTAX3VK6YF;
 				INFOPLIST_FILE = ICloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Kaizen.com.ICloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSTasks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -287,10 +306,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6BNPRA8RPG;
+				CODE_SIGN_ENTITLEMENTS = ICloud/ICloud.entitlements;
+				DEVELOPMENT_TEAM = DTAX3VK6YF;
 				INFOPLIST_FILE = ICloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Kaizen.com.ICloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSTasks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -314,6 +334,7 @@
 				2DC51DA71F28AC650088DF5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
