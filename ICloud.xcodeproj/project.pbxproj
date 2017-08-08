@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D49A0621F380B85008BF031 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D49A0611F380B85008BF031 /* AVFoundation.framework */; };
+		2D49A0661F381E2F008BF031 /* AudioPlayTabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D49A0651F381E2F008BF031 /* AudioPlayTabelCell.m */; };
 		2DC51D931F28AC640088DF5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC51D921F28AC640088DF5D /* main.m */; };
 		2DC51D961F28AC650088DF5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC51D951F28AC650088DF5D /* AppDelegate.m */; };
 		2DC51D991F28AC650088DF5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC51D981F28AC650088DF5D /* ViewController.m */; };
 		2DC51D9C1F28AC650088DF5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC51D9A1F28AC650088DF5D /* Main.storyboard */; };
 		2DC51D9E1F28AC650088DF5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC51D9D1F28AC650088DF5D /* Assets.xcassets */; };
 		2DC51DA11F28AC650088DF5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC51D9F1F28AC650088DF5D /* LaunchScreen.storyboard */; };
+		2DE532A71F374038001ED370 /* RecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE532A61F374038001ED370 /* RecordingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D49A0611F380B85008BF031 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2D49A0641F381E2F008BF031 /* AudioPlayTabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayTabelCell.h; path = Recording/AudioPlayTabelCell.h; sourceTree = "<group>"; };
+		2D49A0651F381E2F008BF031 /* AudioPlayTabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayTabelCell.m; path = Recording/AudioPlayTabelCell.m; sourceTree = "<group>"; };
 		2DC51D8E1F28AC640088DF5D /* ICloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC51D921F28AC640088DF5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2DC51D941F28AC640088DF5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,6 +33,8 @@
 		2DC51DA01F28AC650088DF5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DC51DA21F28AC650088DF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DC51DA81F28AF670088DF5D /* ICloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ICloud.entitlements; sourceTree = "<group>"; };
+		2DE532A51F374037001ED370 /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordingViewController.h; path = Recording/RecordingViewController.h; sourceTree = "<group>"; };
+		2DE532A61F374038001ED370 /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordingViewController.m; path = Recording/RecordingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,12 +42,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D49A0621F380B85008BF031 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D49A0631F381DC1008BF031 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2D49A0641F381E2F008BF031 /* AudioPlayTabelCell.h */,
+				2D49A0651F381E2F008BF031 /* AudioPlayTabelCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		2DC51D851F28AC630088DF5D = {
 			isa = PBXGroup;
 			children = (
@@ -61,10 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				2DC51DA81F28AF670088DF5D /* ICloud.entitlements */,
-				2DC51D941F28AC640088DF5D /* AppDelegate.h */,
-				2DC51D951F28AC650088DF5D /* AppDelegate.m */,
-				2DC51D971F28AC650088DF5D /* ViewController.h */,
-				2DC51D981F28AC650088DF5D /* ViewController.m */,
+				2DE532A41F374008001ED370 /* AppDelegate */,
+				2DE532A31F373FF3001ED370 /* AVRecording */,
+				2DE532A21F373FE1001ED370 /* iCloud */,
 				2DC51D9A1F28AC650088DF5D /* Main.storyboard */,
 				2DC51D9D1F28AC650088DF5D /* Assets.xcassets */,
 				2DC51D9F1F28AC650088DF5D /* LaunchScreen.storyboard */,
@@ -85,8 +102,37 @@
 		2DC51DA91F28AF750088DF5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D49A0611F380B85008BF031 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DE532A21F373FE1001ED370 /* iCloud */ = {
+			isa = PBXGroup;
+			children = (
+				2DC51D971F28AC650088DF5D /* ViewController.h */,
+				2DC51D981F28AC650088DF5D /* ViewController.m */,
+			);
+			name = iCloud;
+			sourceTree = "<group>";
+		};
+		2DE532A31F373FF3001ED370 /* AVRecording */ = {
+			isa = PBXGroup;
+			children = (
+				2D49A0631F381DC1008BF031 /* Cell */,
+				2DE532A51F374037001ED370 /* RecordingViewController.h */,
+				2DE532A61F374038001ED370 /* RecordingViewController.m */,
+			);
+			name = AVRecording;
+			sourceTree = "<group>";
+		};
+		2DE532A41F374008001ED370 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2DC51D941F28AC640088DF5D /* AppDelegate.h */,
+				2DC51D951F28AC650088DF5D /* AppDelegate.m */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,9 +215,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DE532A71F374038001ED370 /* RecordingViewController.m in Sources */,
 				2DC51D991F28AC650088DF5D /* ViewController.m in Sources */,
 				2DC51D961F28AC650088DF5D /* AppDelegate.m in Sources */,
 				2DC51D931F28AC640088DF5D /* main.m in Sources */,
+				2D49A0661F381E2F008BF031 /* AudioPlayTabelCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
