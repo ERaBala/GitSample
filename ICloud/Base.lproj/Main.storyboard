@@ -95,10 +95,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeM-0Q-LGV">
-                                                    <rect key="frame" x="8" y="7" width="46" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeM-0Q-LGV">
+                                                    <rect key="frame" x="8" y="7" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Play"/>
+                                                    <state key="normal" image="video-play-icon.png"/>
                                                     <connections>
                                                         <action selector="playPauseButton:" destination="cdD-c8-J0N" eventType="touchUpInside" id="td7-dN-OiV"/>
                                                     </connections>
@@ -113,10 +113,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="playPauseButtonOutlet" destination="VeM-0Q-LGV" id="IuC-Dy-Xlc"/>
                                             <outlet property="titleLabel" destination="7fM-3X-Fm4" id="wtu-Z1-qgB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bwK-qA-bWA" id="qXU-4S-y3K"/>
+                                    <outlet property="delegate" destination="bwK-qA-bWA" id="Wyd-fv-DtY"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFQ-C5-a9O">
                                 <rect key="frame" x="16" y="576" width="343" height="30"/>
@@ -140,4 +145,7 @@
             <point key="canvasLocation" x="936.79999999999995" y="43.628185907046479"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="video-play-icon.png" width="30" height="30"/>
+    </resources>
 </document>

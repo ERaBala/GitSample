@@ -13,6 +13,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    ButtonStatus = 0;
+    [_playPauseButtonOutlet setImage:[UIImage imageNamed:@"video-play-icon.png"] forState:UIControlStateNormal];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,6 +26,16 @@
 }
 
 - (IBAction)playPauseButton:(id)sender {
+
+    NSLog(@"%@",sender);
+    if (ButtonStatus == 0) {
+        [_playPauseButtonOutlet setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+        ButtonStatus = 1;
+    }
+    else{
+        [_playPauseButtonOutlet setImage:[UIImage imageNamed:@"video-play-icon.png"] forState:UIControlStateNormal];
+        ButtonStatus = 0;
+    }
     
 }
 

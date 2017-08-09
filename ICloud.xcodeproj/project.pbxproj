@@ -16,6 +16,8 @@
 		2DC51D9E1F28AC650088DF5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC51D9D1F28AC650088DF5D /* Assets.xcassets */; };
 		2DC51DA11F28AC650088DF5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC51D9F1F28AC650088DF5D /* LaunchScreen.storyboard */; };
 		2DE532A71F374038001ED370 /* RecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE532A61F374038001ED370 /* RecordingViewController.m */; };
+		2DEF7A491F3AE781006361DD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF7A471F3AE781006361DD /* pause.png */; };
+		2DEF7A4A1F3AE781006361DD /* video-play-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF7A481F3AE781006361DD /* video-play-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		2DC51DA81F28AF670088DF5D /* ICloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ICloud.entitlements; sourceTree = "<group>"; };
 		2DE532A51F374037001ED370 /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordingViewController.h; path = Recording/RecordingViewController.h; sourceTree = "<group>"; };
 		2DE532A61F374038001ED370 /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordingViewController.m; path = Recording/RecordingViewController.m; sourceTree = "<group>"; };
+		2DEF7A471F3AE781006361DD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		2DEF7A481F3AE781006361DD /* video-play-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video-play-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		2DC51D901F28AC640088DF5D /* ICloud */ = {
 			isa = PBXGroup;
 			children = (
+				2DEF7A461F3AE76C006361DD /* Resource */,
 				2DC51DA81F28AF670088DF5D /* ICloud.entitlements */,
 				2DE532A41F374008001ED370 /* AppDelegate */,
 				2DE532A31F373FF3001ED370 /* AVRecording */,
@@ -133,6 +138,15 @@
 				2DC51D951F28AC650088DF5D /* AppDelegate.m */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		2DEF7A461F3AE76C006361DD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2DEF7A471F3AE781006361DD /* pause.png */,
+				2DEF7A481F3AE781006361DD /* video-play-icon.png */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +218,8 @@
 			files = (
 				2DC51DA11F28AC650088DF5D /* LaunchScreen.storyboard in Resources */,
 				2DC51D9E1F28AC650088DF5D /* Assets.xcassets in Resources */,
+				2DEF7A4A1F3AE781006361DD /* video-play-icon.png in Resources */,
+				2DEF7A491F3AE781006361DD /* pause.png in Resources */,
 				2DC51D9C1F28AC650088DF5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

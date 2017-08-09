@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface RecordingViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate,UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

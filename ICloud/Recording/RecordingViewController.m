@@ -7,6 +7,8 @@
 //
 
 #import "RecordingViewController.h"
+#import "AudioPlayTabelCell.h"
+
 #define DOCUMENTS_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 
 @interface RecordingViewController ()
@@ -110,7 +112,7 @@
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
     
     [DirectoryArray addObject:DirectoryURL];
-    
+    [_tableView reloadData];
     NSLog(@"List of Array -- %@",DirectoryArray);
     NSLog(@"over over");
 }
@@ -149,16 +151,41 @@
 
 
 - (IBAction)playTapped:(id)sender {
+    
+    NSURL * urls = DirectoryArray[1];
+    
     if (!recorder.recording){
-        player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
+        NSLog(@"%@",recorder.url);
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:urls error:nil];
+        
         [player setDelegate:self];
         [player play];
+        
     }
 }
 
 - (IBAction)recordingStartButton:(id)sender {
     
     NSLog(@"button Press");
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"count");
+    return [DirectoryArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    static NSString *simpleTableIdentifier = @"cell";
+    
+    AudioPlayTabelCell *cell = (AudioPlayTabelCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    NSString * FileName = [DirectoryArray objectAtIndex:indexPath.row];
+    cell.titleLabel.text = @"namess" ;
+    
+    return cell;
 }
 
 @end

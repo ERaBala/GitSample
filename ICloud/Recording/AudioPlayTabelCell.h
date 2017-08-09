@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface AudioPlayTabelCell : UITableViewCell
+{
+    int ButtonStatus;
+}
 
 - (IBAction)playPauseButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *playPauseButtonOutlet;
+@property (weak, nonatomic) IBOutlet UILabel * titleLabel;
 
 @end
