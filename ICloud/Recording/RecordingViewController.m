@@ -34,13 +34,17 @@
     [super viewDidLoad];
     
     DirectoryArray = [[NSMutableArray alloc] init];
-
     _recordingView.hidden = YES;
     
 //  Button Actions
     [_longPressButtonTrigger addTarget:self action:@selector(holdDown) forControlEvents:UIControlEventTouchDown];
     [_longPressButtonTrigger addTarget:self action:@selector(holdRelease) forControlEvents:UIControlEventTouchUpInside];
     [_longPressButtonTrigger addTarget:self action:@selector(holdReleaseOutSide) forControlEvents:UIControlEventTouchUpOutside]; //add this for your case releasing the finger out side of the button's frame
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playTappedButton:) name:@"PlayNotification" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseTappedButton:) name:@"PauseNotification" object:nil];
+
     
 }
 
@@ -119,6 +123,8 @@
 
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DonePlay" object:self ];
     NSLog(@"Done Play");
 }
 
@@ -152,16 +158,40 @@
 
 - (IBAction)playTapped:(id)sender {
     
-    NSURL * urls = DirectoryArray[1];
-    
-    if (!recorder.recording){
-        NSLog(@"%@",recorder.url);
-        player = [[AVAudioPlayer alloc] initWithContentsOfURL:urls error:nil];
+}
+
+#pragma mark - Notification
+-(void) playTappedButton:(NSNotification *) notification
+{
+    NSDictionary *dict = notification.userInfo;
+    NSString * message = [dict valueForKey: @"TableViewCellRow"];
+    if (message != nil) {
+
+        long row = [message integerValue];
+        NSURL * urls = DirectoryArray[row];
         
-        [player setDelegate:self];
-        [player play];
-        
+        if (!recorder.recording){
+            NSLog(@"%@",recorder.url);
+            player = [[AVAudioPlayer alloc] initWithContentsOfURL:urls error:nil];
+            
+            [player setDelegate:self];
+            [player play];
+            
+        }
     }
+}
+
+-(void) pauseTappedButton:(NSNotification *) notification
+{
+    [player pause];
+}
+
+-(void) playTappedButton {
+    
+}
+
+-(void) pauseTappedButton {
+    
 }
 
 - (IBAction)recordingStartButton:(id)sender {
@@ -182,8 +212,12 @@
     
     AudioPlayTabelCell *cell = (AudioPlayTabelCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    NSString * FileName = [DirectoryArray objectAtIndex:indexPath.row];
-    cell.titleLabel.text = @"namess" ;
+    NSString *FileName = [NSString stringWithFormat: @"MyAudioMemo%ld.m4a", indexPath.row];
+
+    cell.playPauseButtonOutlet.tag = indexPath.row;
+
+    NSURL * FileNameURL = [DirectoryArray objectAtIndex:indexPath.row];
+    cell.titleLabel.text = FileName;
     
     return cell;
 }
