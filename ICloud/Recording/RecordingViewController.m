@@ -16,6 +16,9 @@
     AVAudioPlayer *player;
     
     NSString * recorderFilePath;
+    NSURL * DirectoryURL;
+    NSMutableArray * DirectoryArray;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIView *recordingView;
@@ -28,14 +31,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    DirectoryArray = [[NSMutableArray alloc] init];
+
     _recordingView.hidden = YES;
     
+//  Button Actions
+    [_longPressButtonTrigger addTarget:self action:@selector(holdDown) forControlEvents:UIControlEventTouchDown];
+    [_longPressButtonTrigger addTarget:self action:@selector(holdRelease) forControlEvents:UIControlEventTouchUpInside];
+    [_longPressButtonTrigger addTarget:self action:@selector(holdReleaseOutSide) forControlEvents:UIControlEventTouchUpOutside]; //add this for your case releasing the finger out side of the button's frame
+    
+}
+
+-(NSURL *)startPreparToRecord {
     // Set the audio file
+    
+    NSUInteger r = arc4random_uniform(999);
+    NSLog(@"Randoim number - %lu",(unsigned long)r);
+    NSString *FileName = [NSString stringWithFormat: @"MyAudioMemo%ld.m4a", (long)r];
+
+    
     NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemo.m4a",
-                               nil];
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],FileName,nil];
+    
     NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    
+    NSLog(@"%@",outputFileURL);
     
     // Setup audio session
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -53,17 +73,15 @@
     recorder.delegate = self;
     recorder.meteringEnabled = YES;
     [recorder prepareToRecord];
-    
 
-//  Button Actions
-    [_longPressButtonTrigger addTarget:self action:@selector(holdDown) forControlEvents:UIControlEventTouchDown];
-    [_longPressButtonTrigger addTarget:self action:@selector(holdRelease) forControlEvents:UIControlEventTouchUpInside];
-    [_longPressButtonTrigger addTarget:self action:@selector(holdReleaseOutSide) forControlEvents:UIControlEventTouchUpOutside]; //add this for your case releasing the finger out side of the button's frame
-    
+    return outputFileURL;
 }
 
 - (void)holdDown
 {
+    DirectoryURL = [self startPreparToRecord];
+    NSLog(@"%@",DirectoryURL);
+    
     NSLog(@"hold Down - Start Recording");
     
     AVAudioSession *session = [AVAudioSession sharedInstance];
@@ -90,6 +108,10 @@
 
 
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
+    
+    [DirectoryArray addObject:DirectoryURL];
+    
+    NSLog(@"List of Array -- %@",DirectoryArray);
     NSLog(@"over over");
 }
 
